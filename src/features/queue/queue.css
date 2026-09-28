@@ -1,0 +1,64 @@
+.queue-panel {
+  border-left: 1px solid var(--line);
+  padding: 24px 18px;
+  overflow-y: auto;
+}
+.queue-panel__head {
+  margin: 0 0 14px;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.queue-panel__empty {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+.queue-panel__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.queue-panel__list button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 8px;
+  border-radius: var(--radius-sm);
+  text-align: left;
+}
+.queue-panel__list button:hover {
+  background: var(--surface-raised);
+}
+.queue-panel__list img {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.queue-panel__list span {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.queue-panel__title {
+  font-size: 0.84rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.queue-panel__artist {
+  font-size: 0.74rem;
+  color: var(--text-dim);
+}
+
+@media (max-width: 900px) {
+  .queue-panel {
+    display: none;
+  }
+}

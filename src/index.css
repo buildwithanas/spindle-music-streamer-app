@@ -1,0 +1,127 @@
+:root {
+  /* --- color tokens --- */
+  --bg: #14120f;
+  --surface: #1c1914;
+  --surface-raised: #232019;
+  --line: #322c22;
+  --text: #f2ede4;
+  --text-muted: #a89e8d;
+  --text-dim: #6f6858;
+  --amber: #e8a33d;
+  --amber-dim: #8a6528;
+  --teal: #2e6e62;
+  --teal-bright: #4fa393;
+  --danger: #c25a4a;
+
+  /* --- type tokens --- */
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-ui: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  /* --- layout tokens --- */
+  --rail-w: 232px;
+  --queue-w: 300px;
+  --transport-h: 96px;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button:focus-visible,
+[tabindex]:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: var(--rail-w) 1fr var(--queue-w);
+  grid-template-rows: 1fr var(--transport-h);
+  height: 100vh;
+  background:
+    radial-gradient(ellipse at top left, rgba(232, 163, 61, 0.05), transparent 60%),
+    var(--bg);
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr var(--transport-h);
+  }
+}
+
+.main-view {
+  min-width: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- shared: icon button --- */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.icon-btn:hover {
+  color: var(--text);
+  background: var(--surface-raised);
+}
+.icon-btn--active {
+  color: var(--amber);
+}
